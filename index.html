@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiply Master</title>
+  <link rel="stylesheet" type="text/css" href="multiply_master.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Multiplication Master</h1>
+  <form>
+      <p>Choose the multiplication tables you would like to practice:</p>
+      <div class="grid">
+        <label class="container twos">twos
+          <input class="checkbox" type="checkbox" value="2">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container threes">threes
+          <input class="checkbox" type="checkbox" value="3">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container fours">fours
+          <input class="checkbox" type="checkbox" value="4">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container fives">fives
+          <input class="checkbox" type="checkbox" value="5">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container sixes">sixes
+          <input class="checkbox" type="checkbox" value="6">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container sevens">sevens
+          <input class="checkbox" type="checkbox" value="7">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container eights">eights
+          <input class="checkbox" type="checkbox" value="8">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container nines">nines
+          <input class="checkbox" type="checkbox" value="9">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container tens">tens
+          <input class="checkbox" type="checkbox" value="10">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container elevens">elevens
+          <input class="checkbox" type="checkbox" value="11">
+          <span class="checkmark"></span>
+        </label>
+        <label class="container twelves">twelves
+          <input class="checkbox" type="checkbox" value="12">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <button class="btn begin" type="submit">begin practice</button>
+  </form>
+
+  <form class="practice-area">
+    <div class="question-count">0/0</div>
+    <div class="timer">0:00
+    </div>
+    <div class="equation"></div>
+    <div class="answer-input">
+      <input type="number" class="answer" value=''>
+      <span>
+        <button type="submit" class="submit-answer btn">check answer</button>
+      </span>
+    </div>
+    <p class="feedback"></p>
+    <button class="btn again hide">start over</button>
+  </form>
+  
+  <script type="text/javascript" src="./multiply_master.js"></script>
+</body>
+</html>

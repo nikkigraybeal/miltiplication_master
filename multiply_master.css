@@ -1,0 +1,177 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, p, fieldset, form, label, legend, input, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5em;
+  background: #1C77C3;
+}
+h1 {
+  text-align: center;
+  font-size: 2em;
+}
+form {
+  border: 2px solid #F37748;
+  border-radius: 12px;
+  width: 68%;
+  margin: 40px auto;
+  padding: 20px 60px;
+  background: #39A9DB;
+}
+p {
+  padding: 10px 0 20px;
+}
+.btn {
+  background: none;
+  border: 2px solid #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+}
+.btn:hover {
+  background: #F37748;
+  color: #fff;
+}
+.begin {
+  position: relative;
+  left: 37%;
+}
+.twos { grid-area: twos; }
+.threes { grid-area: threes; }
+.fours { grid-area: fours; }
+.fives { grid-area: fives; }
+.sixes { grid-area: sixes; }
+.sevens { grid-area: sevens; }
+.eights { grid-area: eights; }
+.nines { grid-area: nines; }
+.tens { grid-area: tens; }
+.elevens { grid-area: elevens; }
+.twelves { grid-area: twelves; }
+.grid {
+  display: grid;
+  grid-template-areas: 
+    'twos twos threes threes fours fours fives fives'
+    'sixes sixes sevens sevens eights eights nines nines'
+    'tens tens elevens elevens twelves twelves twelves twelves';
+  padding: 10px;
+}
+
+/* customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* hide the browser's default checkbox*/
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+/* on mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background: #F37748;
+}
+/* when the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background: #F37748;
+}
+/* create the checkmark/iondicator (hidden when not checked)*/
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* show the checkmark when checked*/
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+/* style the checkmark/indicator*/
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.practice-area {
+  position: relative;
+}
+.question-count {
+  position: absolutle;
+}
+.timer {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+}
+.equation {
+  position: relative;
+  text-align: center;
+  padding: 20px 0 10px 0;
+  font-size: 2em;
+}
+.answer-input {
+  position: relative;
+  text-align: center;
+  padding: 20px 0;
+}
+.answer {
+  border-radius: 4px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+.answer:focus {
+  border: 2px solid #F37748;
+}
+.answer:focus ~ span .submit-answer {
+  background: #F37748;
+}
+.again {
+  position: relative;
+  left: 42%; 
+}
+.feedback {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
