@@ -1,10 +1,10 @@
 const form = document.querySelector('form')
-const submitBtn = document.querySelector('input.begin')
-console.log(submitBtn)
-const checked = document.querySelectorAll('input')
+const submitBtn = document.querySelector('.begin')
+const checked = document.querySelectorAll('.checkbox')
 const equation = document.querySelector('.equation')
-const count = document.querySelector('.question-count')
-const answer = document.querySelector('.practice-area')
+const count = document.querySelector('.count')
+const answer = document.querySelector('.answer')
+const answerBtn = document.querySelector('.submit-answer')
 const feedback = document.querySelector('.feedback')
 const timer = document.querySelector('.timer')
 const resetBtn = document.querySelector('.again')
@@ -59,7 +59,7 @@ const stopTick = () => clearInterval(tick)
 const clock = () => {
   if (seconds === 59) {
     minutes += 1
-    seconds = 0
+    seconds = -1
   }
   seconds += 1
   timer.innerHTML = `${minutes}:${seconds}` 
@@ -75,6 +75,7 @@ const handleAnswer = (e) => {
   let initialCount = Object.keys(practiceProblems).length
   let problem = equation.innerHTML
   let answer = document.querySelector('.answer').value
+  console.log(`problems obj: ${practiceProblems}, current prob: ${problem}, answer: ${answer}`)
 
   checkAnswer(problem, answer, practiceProblems)
   
@@ -85,7 +86,7 @@ const handleAnswer = (e) => {
   resetDisplay(practiceProblems)
 }
 
-answer.addEventListener('submit', handleAnswer)
+answerBtn.addEventListener('click', handleAnswer)
 
 const checkAnswer = (problem, answer, obj) => {
   if (obj[problem] === parseInt(answer)) {

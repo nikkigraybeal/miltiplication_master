@@ -1,35 +1,21 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, p, fieldset, form, label, legend, input, button {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+:root {
+  --dark-main: #9cb6e9;
+  --dark-accent: #8ba1ef;
+  --darker-accent: #3878e7;
+  --light-accent: #b8c1e6;
+  --light-main: #f8f7f2;
 }
-body {
-	line-height: 1;
+html {
+  box-sizing: border-box;
+  font-size: 16px;
   font-family: 'Architects Daughter', cursive;
-  font-size: 1.5em;
-  background: #1C77C3;
 }
-h1 {
-  text-align: center;
-  font-size: 2em;
+html, body {
+  background: var(--darker-accent);
+  height: 100%;
 }
-form {
-  border: 2px solid #F37748;
-  border-radius: 12px;
-  width: 68%;
-  margin: 40px auto;
-  padding: 20px 60px;
-  background: #39A9DB;
-}
-p {
-  padding: 10px 0 20px;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 .btn {
   background: none;
@@ -39,138 +25,104 @@ p {
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 1rem;
 }
 .btn:hover {
-  background: #F37748;
+  background: var(--dark-accent);
   color: #fff;
 }
-.begin {
-  position: relative;
-  left: 37%;
+h1 {
+  text-align: center;
+  margin: 10px auto 20px;
+  font-size: 3rem;
+  
 }
-.twos { grid-area: twos; }
-.threes { grid-area: threes; }
-.fours { grid-area: fours; }
-.fives { grid-area: fives; }
-.sixes { grid-area: sixes; }
-.sevens { grid-area: sevens; }
-.eights { grid-area: eights; }
-.nines { grid-area: nines; }
-.tens { grid-area: tens; }
-.elevens { grid-area: elevens; }
-.twelves { grid-area: twelves; }
-.grid {
-  display: grid;
-  grid-template-areas: 
-    'twos twos threes threes fours fours fives fives'
-    'sixes sixes sevens sevens eights eights nines nines'
-    'tens tens elevens elevens twelves twelves twelves twelves';
+main {
+  background: var(--light-main);
+  border-radius: 3%;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 8% 4%;
+}
+.options {
+  background: var(--darker-accent);
+  border-radius: 3%;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+}
+.options p {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.table-options {
+  text-align: center;
+}
+.radio-container {
+  width: 375px;
+  text-align: center;
+  margin: 0 auto;
   padding: 10px;
 }
-
-/* customize the label (the container) */
-.container {
+.radio-btn-left {
+  display: inline;
+  float: left;
+}
+.radio-btn-right {
+  display: inline;
+  
+}
+.begin {
   display: block;
+  margin: 40px auto 5px;
+}
+.practice {
+  background: var(--darker-accent);
+  border-radius: 3%;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-/* hide the browser's default checkbox*/
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-/* create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background: #eee;
-  border-radius: 5px;
-}
-
-/* on mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background: #F37748;
-}
-/* when the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background: #F37748;
-}
-/* create the checkmark/iondicator (hidden when not checked)*/
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* show the checkmark when checked*/
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-/* style the checkmark/indicator*/
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.practice-area {
-  position: relative;
-}
-.question-count {
-  position: absolutle;
+  width: 90%;
+  height: auto;
+  margin: 5% auto 0;
+  padding: 20px;
+  font-size: 1.5rem
 }
 .timer {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 0;
+  right: 20px;
+}
+.count {
+  position: absolute;
+  top: 0;
+  left: 20px;
 }
 .equation {
-  position: relative;
   text-align: center;
-  padding: 20px 0 10px 0;
-  font-size: 2em;
+  font-size: 3rem;
+  margin-top: 35px;
 }
 .answer-input {
-  position: relative;
+  width: auto;
   text-align: center;
-  padding: 20px 0;
 }
 .answer {
+  width: 60px;
+  height: 40px;
   border-radius: 4px;
-  width: 150px;
-  height: 50px;
   text-align: center;
-}
-.answer:focus {
-  border: 2px solid #F37748;
-}
-.answer:focus ~ span .submit-answer {
-  background: #F37748;
+  font-size: 1rem;
 }
 .again {
-  position: relative;
-  left: 42%; 
+  border: 2px solid black;
+  display: block;
+  margin: 15px auto 0;
 }
 .feedback {
   text-align: center;
+  margin: 5px auto 5px;
 }
 .hide {
   display: none;
