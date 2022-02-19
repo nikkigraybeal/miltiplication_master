@@ -1,6 +1,7 @@
 const form = document.querySelector('form')
 const submitBtn = document.querySelector('.begin')
 const checked = document.querySelectorAll('.checkbox')
+const random = document.getElementById('random')
 const equation = document.querySelector('.equation')
 const count = document.querySelector('.count')
 const answer = document.querySelector('.answer')
@@ -18,7 +19,14 @@ const handleSubmit = (e) => {
     return
   }
   let practiceProblems = generateTables(tablesChosen)
-  let firstProblem = Object.keys(practiceProblems)[0]
+  let firstProblem
+
+  
+  randomize() ?
+    firstProblem = randomProblem(practiceProblems) :
+    firstProblem = Object.keys(practiceProblems)[0]
+  
+   
   equation.innerHTML = firstProblem
   displayInitialCount(Object.keys(practiceProblems).length)
   tick = setInterval(clock, 1000)
@@ -48,6 +56,16 @@ const generateTables = arr => {
     }
   })
   return practiceProblems
+}
+
+const randomize = () => {
+  return random.checked === true
+}
+
+const randomProblem = (obj) => {
+  const keys = Object.keys(obj)
+  const prop = keys[Math.floor(Math.random() * keys.length)]
+  return prop
 }
 
 const displayInitialCount = (int) => {
@@ -105,7 +123,11 @@ const resetDisplay = (obj) => {
     stopTick()
     resetBtn.classList.remove('hide')
   } else {
-    equation.innerHTML = Object.keys(obj)[0]
+    if (randomize()) {
+      equation.innerHTML = randomProblem(obj)
+    } else {
+      equation.innerHTML = Object.keys(obj)[0]
+    }
   }
   document.querySelector('.answer').value = ''
 }
