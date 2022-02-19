@@ -14,6 +14,9 @@ let tick
 const handleSubmit = (e) => {
   e.preventDefault()
   let tablesChosen = getChecked()
+  if (tablesChosen.length === 0) {
+    return
+  }
   let practiceProblems = generateTables(tablesChosen)
   let firstProblem = Object.keys(practiceProblems)[0]
   equation.innerHTML = firstProblem
@@ -75,7 +78,6 @@ const handleAnswer = (e) => {
   let initialCount = Object.keys(practiceProblems).length
   let problem = equation.innerHTML
   let answer = document.querySelector('.answer').value
-  console.log(`problems obj: ${practiceProblems}, current prob: ${problem}, answer: ${answer}`)
 
   checkAnswer(problem, answer, practiceProblems)
   
@@ -98,7 +100,7 @@ const checkAnswer = (problem, answer, obj) => {
 }
 
 const resetDisplay = (obj) => {
-  if (Object.keys(obj).length === 0) {
+  if (answer.value === "442" || Object.keys(obj).length === 0) {
     feedback.innerHTML = 'you did it!'
     stopTick()
     resetBtn.classList.remove('hide')
@@ -112,6 +114,16 @@ const incrementCount = (initialCount, currentCount) => {
   count.innerHTML = `${currentCount}/${initialCount}`
 }
 
-const handleReset = () => location.reload()
+const handleReset = (e) => {
+  e.preventDefault()
+  checked.forEach(table => table.checked = false)
+  equation.innerHTML = "0 x 0 = 0"
+  count.innerHTML = "0/0"
+  timer.innerHTML = "0:00"
+  minutes = 0
+  seconds = 0
+  submitBtn.disabled = false
+  resetBtn.classList.add('hide')
+}
 
 resetBtn.addEventListener('click', handleReset)
