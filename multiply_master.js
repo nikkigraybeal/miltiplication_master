@@ -1,5 +1,6 @@
 const form = document.querySelector('form')
 const submitBtn = document.querySelector('.begin')
+const chooseTables = document.querySelector(".choose-tables")
 const checked = document.querySelectorAll('.checkbox')
 const random = document.getElementById('random')
 const equation = document.querySelector('.equation')
@@ -16,8 +17,10 @@ const handleSubmit = (e) => {
   e.preventDefault()
   let tablesChosen = getChecked()
   if (tablesChosen.length === 0) {
+    chooseTables.classList.remove("hide")
     return
   }
+  chooseTables.classList.add("hide")
   let practiceProblems = generateTables(tablesChosen)
   let firstProblem
 
@@ -31,6 +34,7 @@ const handleSubmit = (e) => {
   displayInitialCount(Object.keys(practiceProblems).length)
   tick = setInterval(clock, 1000)
   submitBtn.disabled = true
+  answerBtn.disabled = false
 }
 
 form.addEventListener('submit', handleSubmit)
@@ -113,15 +117,17 @@ const checkAnswer = (problem, answer, obj) => {
     correct.push(problem)
     feedback.innerHTML = 'Correct!!'
   } else {
-    feedback.innerHTML = 'Sorry, wrong answer.'
+    feedback.innerHTML = 'Try again!'
   }
 }
 
 const resetDisplay = (obj) => {
   if (answer.value === "442" || Object.keys(obj).length === 0) {
-    feedback.innerHTML = 'you did it!'
+    displayProgress()
+    party.confetti(equation)
     stopTick()
     resetBtn.classList.remove('hide')
+    answerBtn.disabled = true
   } else {
     if (randomize()) {
       equation.innerHTML = randomProblem(obj)
@@ -131,6 +137,23 @@ const resetDisplay = (obj) => {
   }
   document.querySelector('.answer').value = ''
 }
+
+const displayProgress = () => {
+  let timerArr = timer.innerHTML.split(":")
+  let countArr = count.innerHTML.split("/")
+  let totalSeconds = (parseInt(timerArr[0]) * 60) + parseInt(timerArr[1])
+  let answered = parseInt(countArr[1]) - parseInt(countArr[0])
+  let timePerProblem = totalSeconds / answered
+  if (timePerProblem <= 3) {
+    feedback.innerHTML = "Fantastic work! You are a Multiplication Master!!"
+  } else if (timePerProblem <= 5) {
+    feedback.innerHTML = "Great work! You're close to mastery! Keep practicing!"
+  } else {
+    feedback.innerHTML = "Way to go! Keep practicing to improve your time!"
+  }
+}
+
+
 
 const incrementCount = (initialCount, currentCount) => {
   count.innerHTML = `${currentCount}/${initialCount}`
@@ -146,6 +169,7 @@ const handleReset = (e) => {
   seconds = 0
   submitBtn.disabled = false
   resetBtn.classList.add('hide')
+  feedback.innerHTML = "Good luck!"
 }
 
 resetBtn.addEventListener('click', handleReset)

@@ -63,14 +63,15 @@
       </section>
       <section class="radio-container">
         <section class="radio-btn-left">
-          <input type="radio" id="random" name="randomize" value="random" checked>
+          <input type="radio" id="random" name="randomize" value="random">
           <label for="html">random order</label><br>
         </section>
         <section class="radio-btn-right">
-          <input type="radio" id="ordered" name="randomize" value="ordered">
+          <input type="radio" id="ordered" name="randomize" value="ordered" checked>
           <label for="ordered">in order</label><br>
         </section>
       </section>
+      <p class="choose-tables hide">Please choose one or more multiplication tables to practice!</p>
       <button class="btn begin" type="submit">begin practice</button>
     </form>
     <form class="practice">
@@ -90,11 +91,12 @@
             <button type="submit" class="submit-answer btn">check answer</button>
           </span>
         </section>
-        <button class="btn again hide">start over</button>
         <p class="feedback">good luck!</p>
+        <button class="btn again hide">start over</button>
       </form>
     </section>
   </main>
   <script type="text/javascript" src="./multiply_master.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 </body>
 </html>
