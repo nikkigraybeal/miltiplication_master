@@ -170,6 +170,7 @@ const handleReset = (e) => {
   submitBtn.disabled = false
   resetBtn.classList.add('hide')
   feedback.innerHTML = "Good luck!"
+  correct = []
 }
 
 resetBtn.addEventListener('click', handleReset)
